@@ -4,6 +4,12 @@
 
     height: 100vh;
     overflow: hidden;
+
+    @media(width <=64em) {
+        display: flex;
+        flex-direction: column-reverse;
+        overflow: auto;
+    }
 }
 
 main {
@@ -13,7 +19,7 @@ main {
     & .main-container {
         max-width: 33rem;
         margin-left: auto;
-    } 
+    }
 
     & .back {
         display: flex;
@@ -26,6 +32,19 @@ main {
         font: 600 1.5rem/1.25 var(--font-family);
         margin-bottom: .5rem;
     }
+
+    @media(width <= 64em) {
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+
+        & .main-container {
+            margin-left: 0;
+        }
+    }
+    @media(width <= 26.625em) {
+        padding: 2rem;
+    }
 }
 
 aside {
@@ -35,17 +54,55 @@ aside {
     & .aside-container {
         max-width: 31rem;
 
-        & > img {
+        &>img {
             margin-top: 2rem;
         }
     }
 
     & h2 {
-        font: 600 2.5/1.25 var(--font-family);
+        font: 600 2.5rem/1.25 var(--font-family);
         margin-bottom: 0.5rem;
 
         & span {
             color: var(--text-highlight);
+        }
+    }
+
+    @media(width <=64em) {
+        padding: 2rem;
+
+        & .aside-container {
+            max-width: 100%;
+            width: 100%;
+            gap: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &>img {
+                width: 50%;
+                height: 100%;
+            }
+        }
+    }
+
+    @media (width <=48em) {
+        & .aside-container {
+            flex-direction: column;
+        }
+    }
+
+    @media (width <= 26.625em) {
+        & .aside-container {
+            gap: 1rem;
+
+            >img {
+                width: 11.25rem;
+            }
+        }
+
+        & h2 {
+            font: 600 1.5rem/1.25 var(--font-family)
         }
     }
 }
